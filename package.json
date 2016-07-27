@@ -12,5 +12,11 @@
     "loader"
   ],
   "author": "MrOnlineCoder",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-uglify": "^1.5.4",
+    "jshint": "^2.9.2"
+  }
 }

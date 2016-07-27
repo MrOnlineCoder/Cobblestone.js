@@ -6,9 +6,9 @@
 	2016
 */
 
-"use strict";
-
 (function () {
+
+	"use strict";
     
 	var routes = {};
 	var loader;
@@ -24,11 +24,11 @@
 	}
 
 	function loadContent(url) {
-	    var req = new XMLHttpRequest;
+	    var req = new window.XMLHttpRequest();
 	    if(!req)
 	        return null;
 
-	    req.open('GET', url, false); // get page synchronously 
+	    req.open('GET', url, false);
 	    req.send();
 	    return req.responseText;
 	}
@@ -46,22 +46,33 @@
 	}
 
 	function log(msg) {
-		console.log("[Cobblestone.js] "+msg);
+		if (settings.debug) console.log("[Cobblestone.js] "+msg);
 	}
 
 	function error(msg) {
 		console.error("[Cobblestone.js] Error: "+msg);
 	}
 
+	function hashHandler(event) {
+		log("Hash changed: "+window.location.hash);
+		var parsed = window.location.hash.substring(1);
+		if (routes[parsed]) {
+			Cobblestone.navigate(parsed);
+		}
+	}
+
     var Cobblestone = {
     	route: function(name, url, controller) {
     		routes[name] = {url: url, controller: controller};
+    		log("Added new route:"+name);
     		return true;
     	},
     	navigate: function(name) {
     		var toUse  = routes[name];
     		loader = document.getElementById(settings.loaderId);
+ 			log("Loading content for route: "+name);
     		loader.innerHTML = loadContent(toUse.url);
+    		log("Processing refs and calling controller...");
     		toUse.controller(processRefs(loader));
     	},
     	config: function(name, key) {
@@ -69,6 +80,10 @@
     	}
     };
 
+    if (!("onhashchange" in window)) {
+    	error("This browser does not support onhashchange event!");
+    } 
 
+    window.onhashchange = hashHandler;
     window.Cobblestone = Cobblestone;
 }());
