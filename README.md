@@ -18,7 +18,7 @@ We will show you step-by-step tutorial how to build simple SPA using Cobblestone
 
 Let's begin
 
-1. Connect Cobblestone.js to your index page:
+1.Connect Cobblestone.js to your index page:
 
 ```html
 
@@ -26,7 +26,7 @@ Let's begin
 
 ```
 
-2. Create a div element, where content will be loaded:
+2.Create a div element, where content will be loaded:
 
 ```html
 
@@ -36,7 +36,7 @@ Let's begin
 
 Specifying **id=cobblestoneView** tells Cobblestone that this div should be used as target for content.
 
-3. Create a script, where Cobblestone.js will be configured:
+3.Create a script, where Cobblestone.js will be configured:
 
 ```html
 
@@ -46,11 +46,11 @@ Specifying **id=cobblestoneView** tells Cobblestone that this div should be used
 
 ```
 
-4. Let's talk about app structure:
+4.Let's talk about app structure:
 
 We will have 2 routes: **homepage** and **contacts** and 2 links (<a> elements) for thoose routes
 
-5. Now let's add a route using **.route()** method. It takes 3 arguments:
+5.Now let's add a route using **.route()** method. It takes 3 arguments:
 
 ```javascript
 
@@ -74,7 +74,7 @@ Cobblestone.route("contacts", "views/contacts.html", ContactsController);
 
 ```
 
-6. Now let's create views:
+6.Now let's create views:
 
 ```html
 <!--views/homepage.html-->
@@ -93,7 +93,7 @@ Cobblestone.route("contacts", "views/contacts.html", ContactsController);
 
 ```
 
-7. Now, we have to create controllers for our routes.
+7.Now, we have to create controllers for our routes.
 
 ```javascript
 
