@@ -38,7 +38,7 @@
 		var refs = {};
 		for (var i = 0; i<refCollection.length; i++) {
 			var current = refCollection[i];
-			refs[current.getAttribute(settings.refAttr)] = current;
+			refs[current.getAttribute(settings.refAttr)] = settings.selector(current);
 			log("Ref found: "+current.getAttribute(settings.refAttr));
 		}
 
