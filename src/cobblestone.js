@@ -40,7 +40,7 @@
 		let refs = {};
 		for (let i = 0; i<refCollection.length; i++) {
 			let current = refCollection[i];
-			refs[current.getAttribute(settings.refAttr)] = current;
+			refs[current.getAttribute(settings.refAttr)] = settings.selector(current);
 			log("Ref found: "+current.getAttribute(settings.refAttr));
 		}
 
