@@ -12,7 +12,9 @@ gulp.task("hint", function() {
 
 gulp.task("build", function() {
 	return gulp.src("./src/cobblestone.js")
-        .pipe(uglify())
+        .pipe(uglify().on('error', function(e){
+            console.log(e);
+         }))
         .pipe(gulp.dest("./dist/"));
 });
 

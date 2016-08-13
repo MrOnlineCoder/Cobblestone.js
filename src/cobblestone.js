@@ -6,6 +6,8 @@
 	2016
 */
 
+/*jshint esversion: 6*/
+
 {
 
 	"use strict";
@@ -63,7 +65,7 @@
 
     var Cobblestone = {
     	route: function(name, url, controller) {
-    		routes[name] = {url: url, controller: controller};
+    		routes[name] = {url, controller};
     		log("Added new route:"+name);
     		return true;
     	},
