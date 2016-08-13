@@ -6,16 +6,16 @@
 	2016
 */
 
-(function () {
+{
 
 	"use strict";
     
-	var routes = {};
-	var loader;
-	var settings = {
+	let routes = {};
+	let loader;
+	let settings = {
 		refAttr: "id",
 		loaderId: "cobblestoneView",
-		selector: selector,
+		selector,
 		debug: false
 	};
 
@@ -24,7 +24,7 @@
 	}
 
 	function loadContent(url) {
-	    var req = new window.XMLHttpRequest();
+	    let req = new window.XMLHttpRequest();
 	    if(!req)
 	        return null;
 
@@ -34,10 +34,10 @@
 	}
 
 	function processRefs(l) {
-		var refCollection = l.querySelectorAll("*["+settings.refAttr+"]");
-		var refs = {};
-		for (var i = 0; i<refCollection.length; i++) {
-			var current = refCollection[i];
+		let refCollection = l.querySelectorAll("*["+settings.refAttr+"]");
+		let refs = {};
+		for (let i = 0; i<refCollection.length; i++) {
+			let current = refCollection[i];
 			refs[current.getAttribute(settings.refAttr)] = current;
 			log("Ref found: "+current.getAttribute(settings.refAttr));
 		}
@@ -55,7 +55,7 @@
 
 	function hashHandler(event) {
 		log("Hash changed: "+window.location.hash);
-		var parsed = window.location.hash.substring(1);
+		let parsed = window.location.hash.substring(1);
 		if (routes[parsed]) {
 			Cobblestone.navigate(parsed);
 		}
@@ -68,7 +68,7 @@
     		return true;
     	},
     	navigate: function(name) {
-    		var toUse  = routes[name];
+    		let toUse  = routes[name];
     		loader = document.getElementById(settings.loaderId);
  			log("Loading content for route: "+name);
     		loader.innerHTML = loadContent(toUse.url);
@@ -86,4 +86,4 @@
 
     window.onhashchange = hashHandler;
     window.Cobblestone = Cobblestone;
-}());
+};
