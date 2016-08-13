@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cobblestone.js Test</title>
+</head>
+<body>
+<button onclick="loadView()">Load view</button>
+<br>
+<a href="#view">Load view using link</a>
+<br>
+<div id="cobblestoneView"></div>
+
+<script type="text/javascript" src="../src/cobblestone.js"></script>
+<script type="text/javascript">
+	Cobblestone.config("debug", true);
+	Cobblestone.route("view", "view.html", refs => {
+		console.log("Controller for view called!");
+		refs.btn.onclick = e => {
+			refs.foobar.innerHTML = "Hello World!";
+		}
+	});
+
+	function loadView() {
+		Cobblestone.navigate("view");
+	}
+</script>
+</body>
+</html>

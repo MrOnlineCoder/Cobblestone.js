@@ -12,6 +12,10 @@ Use next link to download library:
 
 [Minified] (https://raw.githubusercontent.com/MrOnlineCoder/Cobblestone.js/master/dist/cobblestone.js)
 
+ES5 version of library is also avaliable, but isn't improved any more.
+
+[Get ES5 version] (https://raw.githubusercontent.com/MrOnlineCoder/Cobblestone.js/es5-version/src/cobblestone.js)
+
 ## Getting started
 
 We will show you step-by-step tutorial how to build simple SPA using Cobblestone.js
@@ -106,9 +110,7 @@ function ContactsController(refs) {
 }
 ```
 
-Probably you will ask: "Why we have refs argument?"
-
-So, the answer: when you navigate to route (call it), Cobblestone.js calls the controller of this route. And to make your life easier, Cobblestone.js automatically can send elements to your controller. To specify, what elements you will need in controller, just add the **id** attribute to your element:
+Refs definition: when you navigate to route (call it), Cobblestone.js calls the controller of this route. And to make your life easier, Cobblestone.js automatically can send elements to your controller. To specify, what elements you will need in controller, just add the **id** attribute to your element:
 
 ```html
 
