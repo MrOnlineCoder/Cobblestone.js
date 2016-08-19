@@ -110,11 +110,11 @@ function ContactsController(refs) {
 }
 ```
 
-Refs definition: when you navigate to route (call it), Cobblestone.js calls the controller of this route. And to make your life easier, Cobblestone.js automatically can send elements to your controller. To specify, what elements you will need in controller, just add the **id** attribute to your element:
+Refs definition: when you navigate to route (call it), Cobblestone.js calls the controller of this route. And to make your life easier, Cobblestone.js automatically can send elements to your controller. To specify, what elements you will need in controller, just add the **cb-ref** attribute to your element:
 
 ```html
 
-<p id="loremipsum">Lorem ipsum goes here :)</p>
+<p cb-ref="loremipsum">Lorem ipsum goes here :)</p>
 
 ```
 
@@ -147,7 +147,7 @@ Cobblestone.route(name, url, controller);
 
 ```
 
-Creates a new route with **name** and **controller**. Content will be loaded from **url**.
+Creates a new route with **name** and **controller**. Content will be loaded from **url**. If **controller** is not specified, no-op function will be used.
 
 ```javascript
 
@@ -167,7 +167,7 @@ Edits the config of Cobblestone.js.
 
 Avaliable keys:
 
-**refAttr** (string) - attribute, which will be used for **refs** object. Default: id
+**refAttr** (string) - attribute, which will be used for **refs** object. Default: cb-ref
 
 **loaderId** (string) - ID of element, where content will be loaded. Default: cobblestoneView
 
@@ -182,6 +182,14 @@ Returned value will be added in **refs** object in controller.
 Default: just returns native DOM element
 
 **debug** (boolean) - toggles debug mode. In debug mode, more info will be printed in console.
+
+```javascript
+
+Cobblestone.default(name);
+
+```
+
+Sets route **<name>** as default. Default route will be loaded on page load if no hash is specified. 
 
 ### Author: MrOnlineCoder
 ### License: MIT

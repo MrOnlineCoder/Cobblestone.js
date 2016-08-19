@@ -18,4 +18,4 @@ gulp.task("build", function() {
         .pipe(gulp.dest("./dist/"));
 });
 
-gulp.task("default",["hint", "build"]);
+gulp.task("default",["hint"]); // Removed build task due to uglify-js errors
